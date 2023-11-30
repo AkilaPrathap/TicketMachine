@@ -1,10 +1,10 @@
 # TicketMachine
 TicketMachine  (2023 -2024)
 
-Introduction
-The coursework involves modelling a ticketing system using FSP (Finite State Processes) andimplementing it in Java with appropriate concurrency features. The system consists of a shared TicketMachine used by passengers and serviced by two technicians. The coursework is divided into threeparts
+## Introduction
+## The coursework involves modelling a ticketing system using FSP (Finite State Processes) andimplementing it in Java with appropriate concurrency features. The system consists of a shared TicketMachine used by passengers and serviced by two technicians. The coursework is divided into threeparts
 
-Part 1 FSP1. 
+# Part 1 FSP1. 
 
 **1. Develop FSP Processes**
 
