@@ -1,0 +1,27 @@
+const MAX_TICKET = 3
+set ACTIONS ={acquirePrinter,print, releasePrinter ,acquireRefill,refill,releaseRefill}
+
+// The printer process
+TICKET_MACHINE = (start -> TICKET_MACHINE[MAX_TICKET]),
+TICKET_MACHINE [i:0..MAX_TICKET] = if (i > 0)  then 
+										(acquirePrinter -> print -> releasePrinter -> TICKET_MACHINE[i-1]) 
+									 else 
+										(acquireRefill -> refill -> releaseRefill-> TICKET_MACHINE[MAX_TICKET]).
+// The user process
+
+PASSENGER (COUNT = MAX_TICKET ) = PASSENGER[COUNT],
+PASSENGER [i:0..COUNT] = if (i > 0) then 
+										(acquirePrinter -> print -> releasePrinter -> PASSENGER[i-1]) 
+								  else
+										(terminate -> END)+ ACTIONS.
+
+// The technician process
+
+TECHNICIAN = (acquireRefill -> refill -> releaseRefill -> TECHNICIAN |terminate -> END)+ ACTIONS.
+
+// The parallel composition of the system
+
+||PRINTING_SYSTEM = ({a,b,t}::TICKET_MACHINE || a:PASSENGER(3)||b:PASSENGER(2) || t:TECHNICIAN)
+					/{terminate/{a.terminate, b.terminate, t.terminate}}.
+
+
