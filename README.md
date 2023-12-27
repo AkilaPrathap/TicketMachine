@@ -23,7 +23,7 @@ TicketMachine  (2023 -2024)
 - Provide screenshots of the FSP model in the LTSA tool.
 - Include an example output from the Java program.
 
-#**Develop the following FSP processes**
+# **Develop the following FSP processes**
 
 **(a) Ticket Machine Process**
 - Initialize with 3 tickets.
@@ -69,7 +69,7 @@ TicketMachine  (2023 -2024)
 - Represent a toner technician replacing the Ticket Machine's toner cartridge.
 - Attempt toner replacement three times with random sleep intervals.
 
-(5) TicketPrintingSystem 
+**(5) TicketPrintingSystem** 
 - Coordinate all components, including Ticket Machine, Passengers, and Technicians.
 - Create necessary threads and thread groups.
 - Ensure all threads complete execution before printing the final Ticket Machine status
