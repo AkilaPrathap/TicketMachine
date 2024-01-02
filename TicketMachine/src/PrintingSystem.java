@@ -33,6 +33,9 @@ public class PrintingSystem {
                 e.printStackTrace();
             }
         }
+        System.out.println(" Remaining paper level " + ticketMachine.getPaperLevel() +
+                " Remaining toner level " + ticketMachine.getTonerLevel());
 
     }
+
 }
