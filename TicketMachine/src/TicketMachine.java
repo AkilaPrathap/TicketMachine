@@ -31,7 +31,7 @@ public class TicketMachine implements ServiceTicketMachine {
                 // Check if there is enough paper and toner to print the ticket
                 if (paperLevel < PAPER_PER_TICKET || tonerLevel < TONER_PER_TICKET) {
                     // If there is not enough paper or toner, throw an exception
-                    refillPaper(5);
+                    refillPaper(MAX_PAPER_LEVEL);
                     replaceToner();
                     throw new IllegalArgumentException("Paper and Tonner Refilled ");
                     
@@ -39,7 +39,7 @@ public class TicketMachine implements ServiceTicketMachine {
                 // Create a new ticket object
                 Ticket ticket = new Ticket(number, price);
                 // Simulate the printing of the ticket
-                System.out.println("Printing " + ticket);
+                System.out.println("Printing " + ticket +"$");
                 // Reduce the paper and toner levels by the amount consumed
                 paperLevel -= PAPER_PER_TICKET;
                 tonerLevel -= TONER_PER_TICKET;
