@@ -20,12 +20,12 @@ public class Passenger implements Runnable {
         for (int i = 0; i < ticketCount; i++) {
             // Generate a random ticket number and price
             int number = random.nextInt(5) ;
-            double price = random.nextInt(50);
+            int price = random.nextInt(50);
             // Print the ticket using the ticket machine
             ticketMachine.printTicket(number, price);
-            // Sleep for a random interval between 0 and 5 seconds
+            // Sleep for a random interval between 0 and 2 seconds
             try {
-                Thread.sleep(random.nextInt(5000));
+                Thread.sleep(random.nextInt(2000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

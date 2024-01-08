@@ -1,19 +1,19 @@
 // The TicketMachine class implements the ServiceTicketMachine interface and manages the paper and toner levels
 
 public class TicketMachine implements ServiceTicketMachine {
-     
+
     private static final int MAX_PAPER_LEVEL = 5; // The maximum paper level that the machine can hold
-    
+
     private static final int MAX_TONER_LEVEL = 5; // The maximum toner level that the machine can have
-    
+
     private static final int PAPER_PER_TICKET = 1; // The amount of paper consumed per ticket
-    
+
     private static final int TONER_PER_TICKET = 1; // The amount of toner consumed per ticket
 
-    private final Object lock = new Object();     // The lock object for synchronization
-    
+    private final Object lock = new Object(); // The lock object for synchronization
+
     private int paperLevel; // The current paper level
-    
+
     private int tonerLevel; // The current toner level
 
     public TicketMachine() {
@@ -33,13 +33,13 @@ public class TicketMachine implements ServiceTicketMachine {
                     // If there is not enough paper or toner, throw an exception
                     refillPaper(MAX_PAPER_LEVEL);
                     replaceToner();
-                    throw new IllegalArgumentException("Paper and Tonner Refilled ");
-                    
+                    System.out.println("Paper and Tonner Refilled ");
+
                 }
                 // Create a new ticket object
                 Ticket ticket = new Ticket(number, price);
                 // Simulate the printing of the ticket
-                System.out.println("Printing " + ticket +"$");
+                System.out.println("Printing " + ticket + "$");
                 // Reduce the paper and toner levels by the amount consumed
                 paperLevel -= PAPER_PER_TICKET;
                 tonerLevel -= TONER_PER_TICKET;
@@ -60,6 +60,7 @@ public class TicketMachine implements ServiceTicketMachine {
                 if (amount <= 0 || paperLevel + amount > MAX_PAPER_LEVEL) {
                     // If the amount is invalid, throw an exception
                     throw new IllegalArgumentException("Invalid paper refill amount");
+
                 }
                 // Increase the paper level by the amount
                 paperLevel += amount;
@@ -73,31 +74,30 @@ public class TicketMachine implements ServiceTicketMachine {
     }
 
     // Replace the toner cartridge
+    // Synchronize on the lock object to ensure mutual exclusion
     public void replaceToner() {
-        // Synchronize on the lock object to ensure mutual exclusion
         synchronized (lock) {
-            // Set the toner level to the maximum
-            tonerLevel = MAX_TONER_LEVEL;
+            tonerLevel = MAX_TONER_LEVEL; // Set the toner level to the maximum
             // Print a message indicating the toner replacement
             System.out.println("Replaced toner, new toner level is " + tonerLevel);
         }
     }
 
     // Get the current paper level
+    // Synchronize on the lock object to ensure mutual exclusion
     public int getPaperLevel() {
-        // Synchronize on the lock object to ensure mutual exclusion
+
         synchronized (lock) {
-            // Return the paper level
-            return paperLevel;
+            return paperLevel; // Return the paper level
         }
     }
 
     // Get the current toner level
+    // Synchronize on the lock object to ensure mutual exclusion
     public int getTonerLevel() {
-        // Synchronize on the lock object to ensure mutual exclusion
+
         synchronized (lock) {
-            // Return the toner level
-            return tonerLevel;
+            return tonerLevel; // Return the toner level
         }
     }
 }
