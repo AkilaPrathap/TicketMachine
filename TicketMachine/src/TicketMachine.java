@@ -31,15 +31,14 @@ public class TicketMachine implements ServiceTicketMachine {
                 // Check if there is enough paper and toner to print the ticket
                 if (paperLevel < PAPER_PER_TICKET || tonerLevel < TONER_PER_TICKET) {
                     // If there is not enough paper or toner, throw an exception
-                    refillPaper(MAX_PAPER_LEVEL);
+                    refillPaper(10);
                     replaceToner();
-                    System.out.println("Paper and Tonner Refilled ");
-
                 }
+
                 // Create a new ticket object
                 Ticket ticket = new Ticket(number, price);
                 // Simulate the printing of the ticket
-                System.out.println("Printing " + ticket + "$");
+                System.out.println( ticket);
                 // Reduce the paper and toner levels by the amount consumed
                 paperLevel -= PAPER_PER_TICKET;
                 tonerLevel -= TONER_PER_TICKET;
@@ -59,13 +58,15 @@ public class TicketMachine implements ServiceTicketMachine {
                 // Check if the amount is positive and does not exceed the maximum paper level
                 if (amount <= 0 || paperLevel + amount > MAX_PAPER_LEVEL) {
                     // If the amount is invalid, throw an exception
-                    throw new IllegalArgumentException("Invalid paper refill amount");
+                    System.out.println(amount+" Papers cannot be added to the printer.");
+                    paperLevel =MAX_PAPER_LEVEL;
+                    throw new IllegalArgumentException("paper refiles to max amout of "+ MAX_PAPER_LEVEL +"\n");
 
                 }
                 // Increase the paper level by the amount
                 paperLevel += amount;
                 // Print a message indicating the new paper level
-                System.out.println("Refilled paper by " + amount + ", new paper level is " + paperLevel);
+                System.out.println("Refilled paper by " + amount + ", new paper level is " + paperLevel +"\n");
             } catch (IllegalArgumentException e) {
                 // Catch the exception and print the error message
                 System.out.println(e.getMessage());
@@ -79,7 +80,7 @@ public class TicketMachine implements ServiceTicketMachine {
         synchronized (lock) {
             tonerLevel = MAX_TONER_LEVEL; // Set the toner level to the maximum
             // Print a message indicating the toner replacement
-            System.out.println("Replaced toner, new toner level is " + tonerLevel);
+            System.out.println("Replaced toner, new toner level is " + tonerLevel +"\n");
         }
     }
 

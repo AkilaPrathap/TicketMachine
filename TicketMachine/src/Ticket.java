@@ -17,6 +17,6 @@ public class Ticket {
     }
 
     public String toString() {
-        return "Ticket #" + number + ", Price: $" + price;
+        return " Ticket TM 00" + number + "\n " +"Seat Number #"  + number + "\n " + "Price: $" + price + "\n";
     }
 }

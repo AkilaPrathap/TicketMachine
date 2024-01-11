@@ -10,7 +10,7 @@ public class PrintingSystem {
         Passenger[] passengers = {
                 new Passenger(ticketMachine, 5),
                 new Passenger(ticketMachine, 3),
-                new Passenger(ticketMachine, 4),
+                new Passenger(ticketMachine, 3),
                 new Passenger(ticketMachine, 2),
                 new Passenger(ticketMachine, 6)
         };
