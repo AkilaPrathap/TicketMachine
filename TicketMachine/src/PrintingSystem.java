@@ -12,6 +12,11 @@ public class PrintingSystem {
                 new Passenger(ticketMachine, 3),
                 new Passenger(ticketMachine, 3),
                 new Passenger(ticketMachine, 2),
+                new Passenger(ticketMachine, 6),
+                new Passenger(ticketMachine, 5),
+                new Passenger(ticketMachine, 3),
+                new Passenger(ticketMachine, 3),
+                new Passenger(ticketMachine, 2),
                 new Passenger(ticketMachine, 6)
         };
 
