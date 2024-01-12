@@ -1,4 +1,5 @@
 import java.util.*;
+
 // The TicketTonerTechnician class represents a toner technician replacing the ticket machine's toner cartridge
 public class TonerTechnician implements Runnable {
     // The ticket machine that the technician replaces toner
@@ -29,4 +30,3 @@ public class TonerTechnician implements Runnable {
         }
     }
 }
-

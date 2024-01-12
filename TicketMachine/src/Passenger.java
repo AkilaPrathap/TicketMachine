@@ -1,4 +1,5 @@
 import java.util.*;
+
 // The Passenger class represents a passenger purchasing and printing tickets
 public class Passenger implements Runnable {
     // The ticket machine that the passenger uses
@@ -19,7 +20,7 @@ public class Passenger implements Runnable {
         // Loop for the number of tickets that the passenger wants to print
         for (int i = 0; i < ticketCount; i++) {
             // Generate a random ticket number and price
-            int number = random.nextInt(50) ;
+            int number = random.nextInt(50);
             int price = random.nextInt(50);
             // Print the ticket using the ticket machine
             ticketMachine.printTicket(number, price);
