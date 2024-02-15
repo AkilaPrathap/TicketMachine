@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class TicketMachine implements ServiceTicketMachine {
 
-    private static final int MAX_PAPER_LEVEL = 3; // The maximum paper level that the machine can hold
+    private static final int MAX_PAPER_LEVEL = 5; // The maximum paper level that the machine can hold
 
     private static final int MAX_TONER_LEVEL = 5; // The maximum toner level that the machine can have
 
